@@ -13,7 +13,17 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    // Update is called once per frame
+    public Transform weapon;
+    Vector3 weaponOrigin;
+    Vector3 weaponBobPosition;
+    float idleCounter;
+    float movementCounter;
+    
+    void Start()
+    {
+        weaponOrigin = weapon.localPosition;
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -23,6 +33,18 @@ public class PlayerMovement : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        if (x == 0 && z == 0)
+        {
+            HeadBob(idleCounter,.025f,.025f);
+            idleCounter += Time.deltaTime;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 2f);
+        }
+        else
+        {
+            HeadBob(movementCounter,.035f,.035f);
+            movementCounter += Time.deltaTime * 4f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 8f);
+        }
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -35,5 +57,10 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void HeadBob(float z, float xIntensity, float yIntensity)
+    {
+        weaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(z) * xIntensity, Mathf.Sin(z*2) * yIntensity, 0);
     }
 }

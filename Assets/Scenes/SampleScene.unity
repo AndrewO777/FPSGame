@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465878, g: 0.4964224, b: 0.57482475, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,8 +248,9 @@ GameObject:
   - component: {fileID: 508901802}
   - component: {fileID: 508901801}
   - component: {fileID: 508901803}
+  - component: {fileID: 508901804}
   m_Layer: 0
-  m_Name: FPSController
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,6 +297,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 279297806}
   - {fileID: 189838816}
+  - {fileID: 1155114951}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -320,6 +322,30 @@ MonoBehaviour:
   speed: 12
   gravity: -9.81
   jumpHeight: 3
+  weapon: {fileID: 1155114951}
+--- !u!114 &508901804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508901800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a12dfde4538f548a3f699c4ced7607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadout:
+  - {fileID: 11400000, guid: d41a9dfaac5559b8f87776bd97b343de, type: 2}
+  weaponParent: {fileID: 1155114951}
+  bulletholePrefab: {fileID: 5981135356058611017, guid: 45c61b2d109682359868ac1597fad86d, type: 3}
+  canBeShot:
+    serializedVersion: 2
+    m_Bits: 8
+  explodePrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
+  bulletEffectPrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
+  counter: 0
+  damage: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +580,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 508901802}
+  weapon: {fileID: 1155114951}
+--- !u!1 &1155114950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155114951}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155114951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155114950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.155, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 508901802}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1640995538
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5b6516db7e905a588e03c0f6fa9ccb, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  name: Pistol
+  firerate: 0.2
+  bloom: 20
+  recoil: 10
+  kickback: 0.15
+  aimSpeed: 7
+  prefab: {fileID: 886398624080448691, guid: a2b0726a2f1f0794bb8ad93edc3a6a5b, type: 3}
