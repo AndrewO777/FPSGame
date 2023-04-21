@@ -310,7 +310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 508901800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c926631c806eadb4fb2edd5f0bd22ec6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dac51ddcfd62304f84042e95c944979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 508901801}
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf1c19ae7e3fd549bc672a04cde3c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c62a4a6355664542b63a573c2a107f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
@@ -605,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155114950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.155, z: 0}
+  m_LocalPosition: {x: 0, y: 0.467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
