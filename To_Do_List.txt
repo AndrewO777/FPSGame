@@ -1,0 +1,44 @@
+First Person Shooter To Do List
+
+1. Give a Unique name to game 
+
+2. Create a Lobby. When the user loads the game it takes them to a menu (Start - Quit Game )
+Thinking when the player hits the start button it can go ahead and load them to the map and the player model
+is locked until all 4 players load in. Or it can take them to a basic queue that is basically another loading screen
+that shows other players are still loading in. Game actually starts when all 4 players are live 
+
+3. Complete Player model. Player should be a walking humanoid figure with some kind of miltary uniform
+(Maybe 4 individual types of materials that gets applied to the player to indicate different military branches)
+Player Mechanics:
+    1. movement  -- need to add animations to player prefab that shows him walking, shooting
+    2. health bar - either slowly regenerates like modern halo or find health packs around map like older halo
+    3. If multiple guns, ability to drop and pick up gun
+
+4. Complete gun models. At least two main guns, machine and pistol if going for halo. 
+Gun Mechanics:
+    1. If you shoot another player they lose health. Extra damage if headshot
+
+5. Complete terrain. When the textures load in it looks okay, but I dont think its very visually appealing in its
+current state. Continue updating throughout the week 
+- spawn points
+- fog effects 
+- lighting -- current skybox does provide a redish hugh but can be better
+(Adam note: I am going to have the terrain 100% complete by the end of this weekend. 
+currently unsure how to upload the full terrain with textures into github but will try to figure it out)
+
+6. Gameification 
+- working multiplayer 
+- If timed game ends after 5 minutes and winner is whoever made most kills. 
+- End game screen displays winner, winners score, play again, or quit
+
+
+7. Things to figure out
+    1. Will the matches be timed (when you die you respawn at your base and fight keeps going for 5 minutes, point
+        goes to whoever kills, most points when)
+        or will it be more sudden death style. Last alive is who wins
+    
+    2. How will we present to class? Will we all bring in our own laptops to show how the multiplayer works? 
+        or download on school computer
+
+
+8. Powerpoint Presentation (Last)
