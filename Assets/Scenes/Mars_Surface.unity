@@ -1709,7 +1709,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1886195100
 PrefabInstance:
@@ -1915,6 +1915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 500
   playerBody: {fileID: 2019481071}
+  weapon: {fileID: 0}
 --- !u!1 &2019481064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +1984,7 @@ MonoBehaviour:
   speed: 12
   gravity: -9.81
   jumpHeight: 3
+  weapon: {fileID: 0}
 --- !u!65 &2019481068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2231,7 +2233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 728484225263773644, guid: 8ca0db4a7d74caa47b9e77b0bd097e21, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 728484225263773644, guid: 8ca0db4a7d74caa47b9e77b0bd097e21, type: 3}
       propertyPath: m_LocalPosition.x
