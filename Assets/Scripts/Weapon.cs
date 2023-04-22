@@ -74,13 +74,13 @@ public class Weapon : MonoBehaviour
         Transform t_spawn = transform.Find("Main Camera");
         RaycastHit t_hit = new RaycastHit();
         //bloom
-        //Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
-        //t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.up;
-        //t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.right;
-        //t_bloom -= t_spawn.position;
-        //t_bloom.Normalize();
+        Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
+        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.up;
+        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.right;
+        t_bloom -= t_spawn.position;
+        t_bloom.Normalize();
         //raycast
-        if (Physics.Raycast(t_spawn.position, t_spawn.position + t_spawn.forward * 1000f, out t_hit, 1000f, canBeShot))
+        if (Physics.Raycast(t_spawn.position, t_spawn.position + t_bloom * 1000f, out t_hit, 1000f, canBeShot))
         {
             if (t_hit.collider.gameObject.tag == "Balls")
             {
