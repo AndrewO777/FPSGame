@@ -65,8 +65,13 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatHDRPFree.shader" />
+    <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatLiteFree.shader" />
     <None Include="Assets\Imported Material\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
+    <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatFree.shader" />
     <None Include="Assets\Imported Material\8K Skybox Pack Free\ReadMe.txt" />
+    <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatURPFree.shader" />
+    <None Include="Assets\Imported Material\PBR Ground Materials #1 [Dirt&amp; Grass]\Documentation.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
