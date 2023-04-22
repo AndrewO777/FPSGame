@@ -79,9 +79,11 @@ public class Weapon : MonoBehaviour
         bloom -= spawn.position;
         bloom.Normalize();
         //raycast
-        if (Physics.Raycast(spawn.position, spawn.position + bloom * 1000f, out hit, 1000f, canBeShot))
+        if (Physics.Raycast(spawn.position, bloom * 1000f, out hit, 1000f, canBeShot))
         {
-            ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point + hit.normal, Quaternion.identity);
+            //Add a if statement and make this the else for if you don't hit a player
+            ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point, Quaternion.identity);
+            bulletExp.transform.rotation = Quaternion.LookRotation((spawn.transform.position - hit.point).normalized);
             bulletExp.Play();
             Destroy(bulletExp, bulletExp.main.duration - 0.1f);
             GameObject newHole = Instantiate(bulletholePrefab, hit.point + hit.normal * 0.001f, Quaternion.identity) as GameObject;

@@ -36,7 +36,7 @@ Transform:
   - {fileID: 3799334820906516705}
   - {fileID: 2010823483431832088}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &5270852265910917227
 CharacterController:
@@ -107,7 +107,6 @@ MonoBehaviour:
     m_Bits: 8
   explodePrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
   bulletEffectPrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
-  counter: 0
   damage: 10
 --- !u!1 &1434734799060252706
 GameObject:
