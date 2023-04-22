@@ -10,7 +10,6 @@ public class Weapon : MonoBehaviour
     public LayerMask canBeShot;
     public ParticleSystem explodePrefab;
     public ParticleSystem bulletEffectPrefab;
-    public int counter = 0;
     public float damage = 10f;
 
     private float currentCooldown;
@@ -42,63 +41,52 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void Equip(int t_index)
+    void Equip(int index)
     {
         if (currentWeapon != null)
         {
             Destroy(currentWeapon);
         }
-        currentIndex = t_index;
-        GameObject t_newEquipment = Instantiate(loadout[t_index].prefab, weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
-        t_newEquipment.transform.localPosition = Vector3.zero;
-        t_newEquipment.transform.localEulerAngles = Vector3.zero;
-        currentWeapon = t_newEquipment;
+        currentIndex = index;
+        GameObject newEquipment = Instantiate(loadout[index].prefab, weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
+        newEquipment.transform.localPosition = Vector3.zero;
+        newEquipment.transform.localEulerAngles = Vector3.zero;
+        currentWeapon = newEquipment;
     }
 
-    void Aim(bool t_isAiming)
+    void Aim(bool isAiming)
     {
-        Transform t_anchor = currentWeapon.transform.Find("Anchor");
-        Transform t_state_ads = currentWeapon.transform.Find("States/ADS");
-        Transform t_state_hip = currentWeapon.transform.Find("States/Hip");
-        if (t_isAiming)
+        Transform anchor = currentWeapon.transform.Find("Anchor");
+        Transform state_ads = currentWeapon.transform.Find("States/ADS");
+        Transform state_hip = currentWeapon.transform.Find("States/Hip");
+        if (isAiming)
         {
-            t_anchor.position = Vector3.Lerp(t_anchor.position, t_state_ads.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            anchor.position = Vector3.Lerp(anchor.position, state_ads.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
         }
         else
         {
-            t_anchor.position = Vector3.Lerp(t_anchor.position, t_state_hip.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            anchor.position = Vector3.Lerp(anchor.position, state_hip.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
         }
     }
     void Shoot()
     {
-        Transform t_spawn = transform.Find("Main Camera");
-        RaycastHit t_hit = new RaycastHit();
+        Transform spawn = transform.Find("Main Camera");
+        RaycastHit hit = new RaycastHit();
         //bloom
-        Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
-        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.up;
-        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.right;
-        t_bloom -= t_spawn.position;
-        t_bloom.Normalize();
+        Vector3 bloom = spawn.position + spawn.forward * 1000f;
+        bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.up;
+        bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.right;
+        bloom -= spawn.position;
+        bloom.Normalize();
         //raycast
-        if (Physics.Raycast(t_spawn.position, t_spawn.position + t_bloom * 1000f, out t_hit, 1000f, canBeShot))
+        if (Physics.Raycast(spawn.position, spawn.position + bloom * 1000f, out hit, 1000f, canBeShot))
         {
-            if (t_hit.collider.gameObject.tag == "Balls")
-            {
-                ParticleSystem exp = Instantiate(explodePrefab, t_hit.point + t_hit.normal, Quaternion.identity);
-                exp.Play();
-                Destroy(exp, exp.main.duration - 0.1f);
-                Destroy(t_hit.collider.gameObject);
-                ++counter;
-            }
-            else
-            {
-                ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, t_hit.point + t_hit.normal, Quaternion.identity);
-                bulletExp.Play();
-                Destroy(bulletExp, bulletExp.main.duration - 0.1f);
-                GameObject t_newHole = Instantiate(bulletholePrefab, t_hit.point + t_hit.normal * 0.001f, Quaternion.identity) as GameObject;
-                t_newHole.transform.LookAt(t_hit.point + t_hit.normal);
-                Destroy(t_newHole, 5f);
-            }
+            ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point + hit.normal, Quaternion.identity);
+            bulletExp.Play();
+            Destroy(bulletExp, bulletExp.main.duration - 0.1f);
+            GameObject newHole = Instantiate(bulletholePrefab, hit.point + hit.normal * 0.001f, Quaternion.identity) as GameObject;
+            newHole.transform.LookAt(hit.point + hit.normal);
+            Destroy(newHole, 5f);
         }
         //gun effects
         currentWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
