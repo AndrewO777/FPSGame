@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Weapon : MonoBehaviour
+
+public class Weapon : NetworkBehaviour
 {
     public GunBase[] loadout;
     public Transform weaponParent;
@@ -24,6 +26,11 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+
         if (currentWeapon != null)
         {
             Aim(Input.GetMouseButton(1));

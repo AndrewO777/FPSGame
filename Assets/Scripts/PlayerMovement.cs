@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+
+
+public class PlayerMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Transform groundCheck;
@@ -18,14 +21,26 @@ public class PlayerMovement : MonoBehaviour
     Vector3 weaponBobPosition;
     float idleCounter;
     float movementCounter;
-    
+
+
     void Start()
     {
         weaponOrigin = weapon.localPosition;
+
+        //if (!IsOwner)
+        //{
+        //    controller.enabled = false; // Disable the CharacterController when not owned
+
+        //}
     }
 
-    void Update()
+   private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
