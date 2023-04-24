@@ -57,9 +57,12 @@
     <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
     <Compile Include="Assets\Hour 14 Package\LevelManager.cs" />
     <Compile Include="Assets\Scripts\GunBase.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutALevel.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutCLevel.cs" />
     <Compile Include="Assets\Scripts\Sway.cs" />
     <Compile Include="Assets\Scripts\CustomNetworkManager.cs" />
     <Compile Include="Assets\Hour 14 Package\LevelManagerMain.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutBLevel.cs" />
     <Compile Include="Assets\Hour 14 Package\QuitGame.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
