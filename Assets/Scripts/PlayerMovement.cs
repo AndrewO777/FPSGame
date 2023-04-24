@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+
+
+public class PlayerMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Transform groundCheck;
@@ -18,14 +21,39 @@ public class PlayerMovement : MonoBehaviour
     Vector3 weaponBobPosition;
     float idleCounter;
     float movementCounter;
-    
-    void Start()
+
+    private NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+    public override void OnNetworkSpawn()
     {
-        weaponOrigin = weapon.localPosition;
+        playerHealth.OnValueChanged += (int previousValue, int newValue) =>
+        {
+            Debug.Log(OwnerClientId + "; Player's Health: " + playerHealth.Value);
+        };
     }
 
-    void Update()
+    void Start()
     {
+        if (IsOwner)
+        {
+            weaponOrigin = weapon.localPosition;
+        }
+    }
+
+    private void Update()
+    {
+        //allows user to control only their own model
+        if (!IsOwner)
+        {
+            return;
+        }
+
+        //edit health value
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            playerHealth.Value = Random.Range(0, 100);
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
