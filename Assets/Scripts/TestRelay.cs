@@ -22,7 +22,7 @@ public class TestRelay : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        //CreateRelay();
+        CreateRelay();
     }
 
 

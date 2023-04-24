@@ -61,11 +61,18 @@
     <Compile Include="Assets\Scripts\NetworkManagerUI.cs" />
     <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
     <Compile Include="Assets\Scripts\TestRelay.cs" />
+    <Compile Include="Assets\Hour 14 Package\LevelManager.cs" />
     <Compile Include="Assets\Scripts\GunBase.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutALevel.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutCLevel.cs" />
     <Compile Include="Assets\Scripts\Sway.cs" />
     <Compile Include="Assets\Scripts\CustomNetworkManager.cs" />
+    <Compile Include="Assets\Hour 14 Package\LevelManagerMain.cs" />
+    <Compile Include="Assets\Hour 14 Package\LoadoutBLevel.cs" />
+    <Compile Include="Assets\Hour 14 Package\QuitGame.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\LobbyManager.cs" />
     <Compile Include="Assets\Scripts\Base_Door.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
@@ -75,22 +82,30 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatLiteFree.shader" />
     <None Include="Assets\Imported Material\Fantasy Forest Environment Free Sample\StandardNoCulling.shader" />
+    <None Include="Assets\Gentleland\SteampunkUI\Fonts\Environment Maps\cc0.txt" />
     <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatFree.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Gentleland\SteampunkUI\ThirdPartyLicenses\RobotoSlab Font License.txt" />
     <None Include="Assets\Imported Material\8K Skybox Pack Free\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Gentleland\SteampunkUI\ThirdPartyLicenses\Arvo Font License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Gentleland\SteampunkUI\Fonts\BebasNeue\OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Gentleland\SteampunkUI\Fonts\RobotoSlab\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Gentleland\SteampunkUI\Fonts\Arvo\OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Gentleland\SteampunkUI\ThirdPartyLicenses\Environment Maps cc0.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Gentleland\SteampunkUI\ThirdPartyLicenses\BebasNeue Font License.txt" />
     <None Include="Assets\Imported Material\WorldMaterialsFree\Shaders\WorldMatURPFree.shader" />
     <None Include="Assets\Imported Material\PBR Ground Materials #1 [Dirt&amp; Grass]\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -910,6 +925,9 @@
     <Reference Include="Unity.Services.Authentication">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Services.Lobbies">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Lobbies.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
@@ -936,6 +954,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Gentleland.SteampunkUI.DemoAndExample.csproj">
+      <Project>{B380F287-C7DD-B27F-D966-246C717B2C47}</Project>
+      <Name>Gentleland.SteampunkUI.DemoAndExample</Name>
+    </ProjectReference>
+    <ProjectReference Include="Gentleland.Utils.SteampunkUI.csproj">
+      <Project>{042D2116-334D-077B-E7B3-D1156E3BF453}</Project>
+      <Name>Gentleland.Utils.SteampunkUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
