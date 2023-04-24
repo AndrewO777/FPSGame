@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mars_Surface.unity
     guid: 28b5665d1c0910645a2fd336f261eae6
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 05c751b8c71a95b479f47529d4592807
+  - enabled: 1
+    path: Assets/Scenes/GameLobby.unity
+    guid: b4f5dfb2be9ec2d4d8b50d4f313a8185
+  - enabled: 1
+    path: Assets/Scenes/ChooseLoadout.unity
+    guid: a6c9a27e25f966f478a54d65c0bf9115
   m_configObjects: {}
