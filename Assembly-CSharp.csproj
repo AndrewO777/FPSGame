@@ -958,10 +958,6 @@
       <Project>{B380F287-C7DD-B27F-D966-246C717B2C47}</Project>
       <Name>Gentleland.SteampunkUI.DemoAndExample</Name>
     </ProjectReference>
-    <ProjectReference Include="Gentleland.Utils.SteampunkUI.csproj">
-      <Project>{042D2116-334D-077B-E7B3-D1156E3BF453}</Project>
-      <Name>Gentleland.Utils.SteampunkUI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

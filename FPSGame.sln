@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{0C89DCFB-3BAD-6C28-6B5B-24F8CAF266D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gentleland.Utils.SteampunkUI", "Gentleland.Utils.SteampunkUI.csproj", "{042D2116-334D-077B-E7B3-D1156E3BF453}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gentleland.SteampunkUI.DemoAndExample", "Gentleland.SteampunkUI.DemoAndExample.csproj", "{B380F287-C7DD-B27F-D966-246C717B2C47}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{0C89DCFB-3BAD-6C28-6B5B-24F8CAF266D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C89DCFB-3BAD-6C28-6B5B-24F8CAF266D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C89DCFB-3BAD-6C28-6B5B-24F8CAF266D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{042D2116-334D-077B-E7B3-D1156E3BF453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{042D2116-334D-077B-E7B3-D1156E3BF453}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{042D2116-334D-077B-E7B3-D1156E3BF453}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{042D2116-334D-077B-E7B3-D1156E3BF453}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B380F287-C7DD-B27F-D966-246C717B2C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B380F287-C7DD-B27F-D966-246C717B2C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B380F287-C7DD-B27F-D966-246C717B2C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
