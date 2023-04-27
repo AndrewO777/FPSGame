@@ -22,7 +22,7 @@ public class PlayerMovement : NetworkBehaviour
     float idleCounter;
     float movementCounter;
 
-    public NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Everyone);
+    public NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public override void OnNetworkSpawn()
     {
@@ -86,8 +86,8 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    [ServerRpc]
-    public void TakeDamageServerRpc(int damage){
+    [ClientRpc]
+    public void TakeDamageClientRpc(int damage){
         playerHealth.Value -= damage;
         Debug.Log(playerHealth.Value);
     }
