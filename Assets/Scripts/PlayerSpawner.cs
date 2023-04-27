@@ -48,7 +48,7 @@ public class PlayerSpawner : MonoBehaviour
     }
 
     // Method to spawn the player
-    private void SpawnPlayer(ulong clientId)
+    public void SpawnPlayer(ulong clientId)
     {
         // Get the next spawn point
         Transform spawnPoint = spawnPoints[nextSpawnPointIndex];

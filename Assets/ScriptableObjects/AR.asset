@@ -17,7 +17,7 @@ MonoBehaviour:
   bloom: 15
   burst: 1
   damage: 6
-  recoil: 8
-  kickback: 0.2
+  recoil: 6
+  kickback: 0.1
   aimSpeed: 10
   prefab: {fileID: 1188149935073346788, guid: ec3e72a8a28e035d9abc47cc9b1cd837, type: 3}

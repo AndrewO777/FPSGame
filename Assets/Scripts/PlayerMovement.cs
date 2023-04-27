@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 
 public class PlayerMovement : NetworkBehaviour
@@ -20,6 +20,7 @@ public class PlayerMovement : NetworkBehaviour
     public float jumpHeight = 3f;
     public Transform weapon;
     Vector3 weaponOrigin;
+    public PlayerSpawner spawner;
     Vector3 weaponBobPosition;
     float idleCounter;
     float movementCounter;
@@ -40,6 +41,7 @@ public class PlayerMovement : NetworkBehaviour
         {
             weaponOrigin = weapon.localPosition;
         }
+        spawner = GameObject.Find("SpawnPoints").GetComponent<PlayerSpawner>();
         myID = OwnerClientId;
     }
 
@@ -95,6 +97,12 @@ public class PlayerMovement : NetworkBehaviour
         Debug.Log(playerHealth.Value);*/
         if (OwnerClientId == id){
             hp-=damage;
+            if (hp <= 0){
+                //die
+                hp = 100;
+                Destroy(gameObject);
+                spawner.SpawnPlayer(OwnerClientId);
+            }
             Debug.Log(hp);
         }
     }
