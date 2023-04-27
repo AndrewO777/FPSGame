@@ -22,7 +22,7 @@ public class PlayerMovement : NetworkBehaviour
     float idleCounter;
     float movementCounter;
 
-    private NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Everyone);
 
     public override void OnNetworkSpawn()
     {
