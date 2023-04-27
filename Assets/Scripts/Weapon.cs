@@ -21,7 +21,7 @@ public class Weapon : NetworkBehaviour
     void Start()
     {
         //Creating pistol, rework this later.
-        Equip(0);
+        Equip(1);
     }
 
     void Update()
@@ -79,6 +79,10 @@ public class Weapon : NetworkBehaviour
     {
         Transform spawn = transform.Find("Main Camera");
         RaycastHit hit = new RaycastHit();
+        int shots = 1;
+        if (currentIndex == 1)
+            shots = 8;
+        for (;shots > 0;--shots){
         //bloom
         Vector3 bloom = spawn.position + spawn.forward * 1000f;
         bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.up;
@@ -96,6 +100,7 @@ public class Weapon : NetworkBehaviour
             GameObject newHole = Instantiate(bulletholePrefab, hit.point + hit.normal * 0.001f, Quaternion.identity) as GameObject;
             newHole.transform.LookAt(hit.point + hit.normal);
             Destroy(newHole, 5f);
+        }
         }
         //gun effects
         currentWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
