@@ -66,15 +66,27 @@ public class PlayerMovement : NetworkBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        if (x == 0 && z == 0)
+        if (Input.GetMouseButton(1) && x == 0 && z == 0)
+        {
+            HeadBob(idleCounter,.01f,.01f);
+            idleCounter += Time.deltaTime;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime);
+        }
+        else if (x == 0 && z == 0)
         {
             HeadBob(idleCounter,.025f,.025f);
             idleCounter += Time.deltaTime;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 2f);
         }
-        else
+        else if (Input.GetMouseButton(1))
         {
             HeadBob(movementCounter,.035f,.035f);
+            movementCounter += Time.deltaTime * 4f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 8f);
+        }
+        else
+        {
+            HeadBob(movementCounter,.015f,.015f);
             movementCounter += Time.deltaTime * 4f;
             weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 8f);
         }
