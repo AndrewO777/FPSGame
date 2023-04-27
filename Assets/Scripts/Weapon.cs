@@ -21,7 +21,6 @@ public class Weapon : NetworkBehaviour
     void Start()
     {
         //Creating pistol, rework this later.
-        Equip(1);
     }
 
     void Update()
@@ -31,6 +30,12 @@ public class Weapon : NetworkBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            Equip(0);
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            Equip(1);
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            Equip(2);
         if (currentWeapon != null)
         {
             Aim(Input.GetMouseButton(1));
