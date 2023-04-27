@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5b6516db7e905a588e03c0f6fa9ccb, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  name: Pistol
-  firerate: 0.2
+  weaponName: 
+  firerate: 0.4
   bloom: 20
-  recoil: 10
-  kickback: 0.15
+  burst: 0
+  damage: 40
+  recoil: 30
+  kickback: 0.35
   aimSpeed: 7
   prefab: {fileID: 886398624080448691, guid: a2b0726a2f1f0794bb8ad93edc3a6a5b, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5042100986366947522}
   - component: {fileID: 5000999862020888992}
   - component: {fileID: 7158054657699865252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000672578250730250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 5262860640348691399}
   - component: {fileID: 2075281627124394673}
   - component: {fileID: 8449418437228535498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player_Multi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,11 +217,12 @@ MonoBehaviour:
   loadout:
   - {fileID: 11400000, guid: d41a9dfaac5559b8f87776bd97b343de, type: 2}
   - {fileID: 11400000, guid: c52b2ea9851ea2cdaa255839e424582e, type: 2}
+  - {fileID: 11400000, guid: 798fc332607c7c54698477448c9e2f6f, type: 2}
   weaponParent: {fileID: 4000672578250730250}
   bulletholePrefab: {fileID: 5981135356058611017, guid: 45c61b2d109682359868ac1597fad86d, type: 3}
   canBeShot:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 72
   explodePrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
   bulletEffectPrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
   damage: 10
@@ -276,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972983718910787881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +310,7 @@ GameObject:
   - component: {fileID: 5696098207424902941}
   - component: {fileID: 3205066068077132931}
   - component: {fileID: 747888244176593401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

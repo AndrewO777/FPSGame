@@ -12,7 +12,7 @@ public class Weapon : NetworkBehaviour
     public LayerMask canBeShot;
     public ParticleSystem explodePrefab;
     public ParticleSystem bulletEffectPrefab;
-    public float damage = 10f;
+    public int damage = 10;
 
     private float currentCooldown;
     private int currentIndex;
@@ -21,7 +21,7 @@ public class Weapon : NetworkBehaviour
     void Start()
     {
         //Creating pistol, rework this later.
-        Equip(1);
+        Equip(2);
     }
 
     void Update()
@@ -34,9 +34,17 @@ public class Weapon : NetworkBehaviour
         if (currentWeapon != null)
         {
             Aim(Input.GetMouseButton(1));
-            if (Input.GetMouseButtonDown(0) && currentCooldown <= 0)
-            {
-                Shoot();
+            if (loadout[currentIndex].burst != 1){
+                if (Input.GetMouseButtonDown(0) && currentCooldown <= 0)
+                {
+                    Shoot();
+                }
+            }
+            else {
+                if (Input.GetMouseButton(0) && currentCooldown <= 0)
+                {
+                    Shoot();
+                }
             }
             //elasticity
             currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition, Vector3.zero, Time.deltaTime * 4f);
@@ -59,6 +67,7 @@ public class Weapon : NetworkBehaviour
         newEquipment.transform.localPosition = Vector3.zero;
         newEquipment.transform.localEulerAngles = Vector3.zero;
         currentWeapon = newEquipment;
+        damage = loadout[index].damage;
     }
 
     void Aim(bool isAiming)
@@ -93,6 +102,20 @@ public class Weapon : NetworkBehaviour
         if (Physics.Raycast(spawn.position, bloom * 1000f, out hit, 1000f, canBeShot))
         {
             //Add a if statement and make this the else for if you don't hit a player
+            if (hit.collider.gameObject.layer == 6)
+            {
+                ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point, Quaternion.identity);
+                bulletExp.transform.rotation = Quaternion.LookRotation((spawn.transform.position - hit.point).normalized);
+                bulletExp.Play();
+                Destroy(bulletExp, bulletExp.main.duration - 0.1f);
+                if (IsLocalPlayer){
+                PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
+                if (player != null){
+                    player.TakeDamageServerRpc(damage);
+                }
+                }
+            }
+            else{
             ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point, Quaternion.identity);
             bulletExp.transform.rotation = Quaternion.LookRotation((spawn.transform.position - hit.point).normalized);
             bulletExp.Play();
@@ -100,6 +123,7 @@ public class Weapon : NetworkBehaviour
             GameObject newHole = Instantiate(bulletholePrefab, hit.point + hit.normal * 0.001f, Quaternion.identity) as GameObject;
             newHole.transform.LookAt(hit.point + hit.normal);
             Destroy(newHole, 5f);
+            }
         }
         }
         //gun effects

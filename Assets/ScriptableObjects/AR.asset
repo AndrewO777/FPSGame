@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df5b6516db7e905a588e03c0f6fa9ccb, type: 3}
-  m_Name: Shotgun
+  m_Name: AR
   m_EditorClassIdentifier: 
   weaponName: 
-  firerate: 0.5
-  bloom: 150
-  burst: 0
-  damage: 12
-  recoil: 20
-  kickback: 0.3
+  firerate: 0.08
+  bloom: 10
+  burst: 1
+  damage: 8
+  recoil: 8
+  kickback: 0.2
   aimSpeed: 10
-  prefab: {fileID: 5376292758276432617, guid: e7d024db5095bc0b684b1f23049d6ab8, type: 3}
+  prefab: {fileID: 1188149935073346788, guid: ec3e72a8a28e035d9abc47cc9b1cd837, type: 3}
