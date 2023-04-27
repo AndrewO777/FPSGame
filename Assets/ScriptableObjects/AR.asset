@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   firerate: 0.08
-  bloom: 10
+  bloom: 15
   burst: 1
-  damage: 8
+  damage: 6
   recoil: 8
   kickback: 0.2
   aimSpeed: 10
