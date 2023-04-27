@@ -21,7 +21,7 @@ public class Weapon : NetworkBehaviour
     void Start()
     {
         //Creating pistol, rework this later.
-        Equip(2);
+        Equip(1);
     }
 
     void Update()
@@ -110,7 +110,7 @@ public class Weapon : NetworkBehaviour
                 Destroy(bulletExp, bulletExp.main.duration - 0.1f);
                 PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
                 if (player != null){
-                    player.TakeDamageClientRpc(damage);
+                    player.TakeDamageServerRpc(player.myID, damage);
                 }
             }
             else{
