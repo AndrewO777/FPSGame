@@ -108,12 +108,9 @@ public class Weapon : NetworkBehaviour
                 bulletExp.transform.rotation = Quaternion.LookRotation((spawn.transform.position - hit.point).normalized);
                 bulletExp.Play();
                 Destroy(bulletExp, bulletExp.main.duration - 0.1f);
-                if (!IsLocalPlayer){
-                    PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
-                    if (player != null){
-                        player.TakeDamageClientRpc(damage);
-                        player.TakeDamageServerRpc(damage);
-                    }
+                PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
+                if (player != null){
+                    player.TakeDamageClientRpc(damage);
                 }
             }
             else{

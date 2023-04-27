@@ -94,13 +94,6 @@ public class PlayerMovement : NetworkBehaviour
         hp-=damage;
         Debug.Log(hp);
     }
-    [ServerRpc]
-    public void TakeDamageServerRpc(int damage){
-        /*playerHealth.Value -= damage;
-        Debug.Log(playerHealth.Value);*/
-        hp-=damage;
-        Debug.Log(hp);
-    }
     void HeadBob(float z, float xIntensity, float yIntensity)
     {
         weaponBobPosition = weaponOrigin + new Vector3(Mathf.Cos(z) * xIntensity, Mathf.Sin(z*2) * yIntensity, 0);
