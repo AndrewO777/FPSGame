@@ -109,10 +109,11 @@ public class Weapon : NetworkBehaviour
                 bulletExp.Play();
                 Destroy(bulletExp, bulletExp.main.duration - 0.1f);
                 if (!IsLocalPlayer){
-                PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
-                if (player != null){
-                    player.TakeDamageClientRpc(damage);
-                }
+                    PlayerMovement player = hit.collider.GetComponent<PlayerMovement>();
+                    if (player != null){
+                        player.TakeDamageClientRpc(damage);
+                        player.TakeDamageServerRpc(damage);
+                    }
                 }
             }
             else{
