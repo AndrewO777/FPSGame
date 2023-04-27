@@ -12,7 +12,7 @@ public class Weapon : NetworkBehaviour
     public LayerMask canBeShot;
     public ParticleSystem explodePrefab;
     public ParticleSystem bulletEffectPrefab;
-    public int damage = 10;
+    public int damage;
 
     private float currentCooldown;
     private int currentIndex;

@@ -12,7 +12,6 @@ public class PlayerMovement : NetworkBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float speed = 12f;
-    public int hp = 100;
     Vector3 velocity;
     bool isGrounded;
     public float gravity = -9.81f;
@@ -89,8 +88,8 @@ public class PlayerMovement : NetworkBehaviour
     }
     [ServerRpc]
     public void TakeDamageServerRpc(int damage){
-        hp-=damage;
-        Debug.Log(hp);
+        playerHealth.Value -= damage;
+        Debug.Log(playerHealth.Value);
     }
     void HeadBob(float z, float xIntensity, float yIntensity)
     {
