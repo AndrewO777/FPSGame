@@ -199,7 +199,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   speed: 12
+  hp: 100
   gravity: -9.81
+  myID: 0
   jumpHeight: 3
   weapon: {fileID: 4000672578250730250}
 --- !u!114 &5262860640348691399
@@ -223,7 +225,7 @@ MonoBehaviour:
   canBeShot:
     serializedVersion: 2
     m_Bits: 72
-  explodePrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
+  explodePrefab: {fileID: 613271750404973174, guid: ee4cd8b4385da14b68dcd7d7d75232ef, type: 3}
   bulletEffectPrefab: {fileID: 613271750404973174, guid: 40bd2fc811f102a2b99ccd686f0939c1, type: 3}
   damage: 10
 --- !u!114 &2075281627124394673

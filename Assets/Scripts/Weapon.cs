@@ -109,7 +109,7 @@ public class Weapon : NetworkBehaviour
             //Add a if statement and make this the else for if you don't hit a player
             if (hit.collider.gameObject.layer == 6)
             {
-                ParticleSystem bulletExp = Instantiate(bulletEffectPrefab, hit.point, Quaternion.identity);
+                ParticleSystem bulletExp = Instantiate(explodePrefab, hit.point, Quaternion.identity);
                 bulletExp.transform.rotation = Quaternion.LookRotation((spawn.transform.position - hit.point).normalized);
                 bulletExp.Play();
                 Destroy(bulletExp, bulletExp.main.duration - 0.1f);
