@@ -16,7 +16,7 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 velocity;
     bool isGrounded;
     public float gravity = -9.81f;
-    public var myID;
+    public ulong myID;
     public float jumpHeight = 3f;
     public Transform weapon;
     Vector3 weaponOrigin;
@@ -90,24 +90,19 @@ public class PlayerMovement : NetworkBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
     [ClientRpc]
-    public void TakeDamageClientRpc(int damage, ClientRpcParams params = default){
+    public void TakeDamageClientRpc(int damage, ulong id){
         /*playerHealth.Value -= damage;
         Debug.Log(playerHealth.Value);*/
-        if (IsOwner)
-            return;
-        hp-=damage;
-        Debug.Log(hp);
+        if (OwnerClientId == id){
+            hp-=damage;
+            Debug.Log(hp);
+        }
     }
-    [ServerRpc]
-    public void TakeDamageServerRpc(var id, int damage){
+    [ServerRpc(RequireOwnership=false)]
+    public void TakeDamageServerRpc(ulong id, int damage){
         if (!IsServer)
             return;
-        ClientRpcParams params = new ClientRpcParams{
-            Send = new ClientRpcSendParams{
-                TargetClientIds = new ulong[]{id}
-            }
-        };
-        TakeDamageClientRpc(damage, params)
+        TakeDamageClientRpc(damage, id);
     }
     void HeadBob(float z, float xIntensity, float yIntensity)
     {
