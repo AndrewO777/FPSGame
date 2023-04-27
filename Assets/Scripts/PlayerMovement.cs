@@ -12,6 +12,7 @@ public class PlayerMovement : NetworkBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float speed = 12f;
+    public int hp = 100;
     Vector3 velocity;
     bool isGrounded;
     public float gravity = -9.81f;
@@ -22,7 +23,7 @@ public class PlayerMovement : NetworkBehaviour
     float idleCounter;
     float movementCounter;
 
-    public NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private NetworkVariable<int> playerHealth = new NetworkVariable<int>(100, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public override void OnNetworkSpawn()
     {
@@ -88,8 +89,10 @@ public class PlayerMovement : NetworkBehaviour
     }
     [ClientRpc]
     public void TakeDamageClientRpc(int damage){
-        playerHealth.Value -= damage;
-        Debug.Log(playerHealth.Value);
+        /*playerHealth.Value -= damage;
+        Debug.Log(playerHealth.Value);*/
+        hp-=damage;
+        Debug.Log(hp);
     }
     void HeadBob(float z, float xIntensity, float yIntensity)
     {
