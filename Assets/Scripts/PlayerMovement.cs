@@ -23,7 +23,7 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 weaponBobPosition;
     float idleCounter;
     float movementCounter;
-    public Animator animator;
+    //public Animator animator;
     public bool isMoving;
     public float runSpeedMultiplier = 1.5f; // Added runSpeedMultiplier with default value
     public float MovementSpeed; // Added MovementSpeed field
@@ -60,26 +60,51 @@ private void Update()
         isMoving = isMovingNetworkVar.Value;
 
         // Enable or disable the Animator component based on the isMoving variable
-        animator.enabled = isMoving;
+        //animator.enabled = isMoving;
         return;
     }
 
     // Update the player's health (for testing purposes)
-    if (Input.GetKeyDown(KeyCode.T))
+    /*if (Input.GetKeyDown(KeyCode.T))
     {
         playerHealth.Value = Random.Range(0, 100);
-    }
+    }*/
 
     // ... (The rest of your movement and input code)
 
-    isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-    if (isGrounded && velocity.y < 0)
-    {
-        velocity.y = -2f;
-    }
+    
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        if (Input.GetMouseButton(1) && x == 0 && z == 0)
+        {
+            HeadBob(idleCounter, .01f, .01f);
+            idleCounter += Time.deltaTime;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime);
+        }
+        else if (x == 0 && z == 0)
+        {
+            HeadBob(idleCounter, .025f, .025f);
+            idleCounter += Time.deltaTime;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 2f);
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            HeadBob(movementCounter, .035f, .035f);
+            movementCounter += Time.deltaTime * 4f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 8f);
+        }
+        else
+        {
+            HeadBob(movementCounter, .015f, .015f);
+            movementCounter += Time.deltaTime * 4f;
+            weapon.localPosition = Vector3.Lerp(weapon.localPosition, weaponBobPosition, Time.deltaTime * 8f);
+        }
 
-    float x = Input.GetAxis("Horizontal");
-    float z = Input.GetAxis("Vertical");
     Vector3 move = transform.right * x + transform.forward * z;
 
     if (move != Vector3.zero)
@@ -96,19 +121,19 @@ private void Update()
     }
 
     // Update the isMoving parameter in the Animator component
-    animator.SetBool("isMoving", isMoving);
+    //animator.SetBool("isMoving", isMoving);
 
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        animator.SetTrigger("Jump");
+        //animator.SetTrigger("Jump");
     }
 
     // Synchronize the isMoving variable across the network
     isMovingNetworkVar.Value = isMoving;
 
     // Enable or disable the Animator component based on the isMoving variable
-    animator.enabled = isMoving;
+    //animator.enabled = isMoving;
 
     velocity.y += gravity * Time.deltaTime;
     controller.Move(velocity * Time.deltaTime);
